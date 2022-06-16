@@ -1,68 +1,91 @@
-import React, { useState } from 'react'
-import Swal from 'sweetalert2';
 import { Table } from './Table'
+import {useState} from "react";
+import Swal from "sweetalert2";
 
 export const Calculate = () => {
 
+    // const [validateSpaces,
+    //     handleInputChange,
+    //     handleInputReset,
+    //     checkInput,
+    //     success,
+    //     datos
+    // ] = StateHook();
+    const [datos, setDatos] = useState({
+        functionT : '',
+        initialValue : '',
+        tolerancia : '',
+        iterations : ''
+    });
 
-  const [datos, setDatos] = useState({
-    functionT : '',
-    initialValue : '',
-    tolerancia : '',
-    iterations : ''
-  });
+    const [success, setSuccess] = useState(false);
 
-  const [success, setSuccess] = useState(false);
-
-  const [checkInput, setCheckInput] = useState(false);
-
-
-  const handleInputChange = (e) =>{
-    //console.log(e.target.value)
-    setDatos({
-      ...datos,
-      [e.target.name] : e.target.value
-    })
-  }
+    const [checkInput, setCheckInput] = useState(false);
 
 
-   const validateSpaces = (e) =>{
-     e.preventDefault();
-     if (datos.function !== '' && datos.initialValue !== '' && datos.tolerancia !== '' && datos.iterations !== ''){
-      setSuccess(true);
-      setCheckInput(true);
-      
-      Swal.fire({
-        icon: 'success',
-        title: 'Calculo realizado con exito!',
-        timer: 5000
-      })
-      
-     } else{
-      Swal.fire({
-        icon: 'error',
-        title: 'Ups...',
-        text: 'Hace falta ingresar datos!',
-        timer: 5000
-      })
-     }
-   }
+    const handleInputChange = (e) =>{
+        //console.log(e.target.value)
+        setDatos({
+            ...datos,
+            [e.target.name] : e.target.value
+        })
+    }
 
-   const handleInputReset = () =>{
-    setSuccess(false);
-    setCheckInput(false);
-    // setDatos({
-    //   functionT : '',
-    //   initialValue : '',
-    //   tolerancia : '',
-    //   iterations : '',
-    // })
-   }
+
+    const validateSpaces = (e) =>{
+        e.preventDefault();
+        if (datos.function !== '' && datos.initialValue !== '' && datos.tolerancia !== '' && datos.iterations !== ''){
+            setSuccess(true);
+            setCheckInput(true);
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Calculo realizado con exito!',
+                timer: 5000
+            })
+
+        } else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Ups...',
+                text: 'Hace falta ingresar datos!',
+                timer: 5000
+            })
+        }
+    }
+
+    const handleInputReset = () =>{
+        if (datos.function !== '' && datos.initialValue !== '' && datos.tolerancia !== '' && datos.iterations !== ''){
+            setSuccess(false);
+            setCheckInput(false);
+            Swal.fire({
+                icon: 'success',
+                title: 'Se ha reseteado con exito!',
+                timer: 5000
+            })
+        }
+        if(success === false){
+            Swal.fire({
+                icon: 'error',
+                title: 'Ups...',
+                text: 'Ya se han reseteado los datos!',
+                timer: 5000
+            })
+        }
+        if (datos.functionT === "" && datos.initialValue === "" && datos.tolerancia === "" && datos.iterations === ""){
+            Swal.fire({
+                icon: 'question',
+                title: 'No hay datos!',
+                timer: 5000
+            })
+        }
+
+    }
 
   return (
     <div className='pt-6'>
 
-      <div className='text-2xl font-semibold text-center pt-8'>Calculate</div>
+      <div className='text-2xl font-semibold text-center pt-8'>Calcular</div>
 
       <form onSubmit={validateSpaces}
       className='sm:grid grid-cols-2 sm:gap-4 bg-gray-50 container mx-auto p-4 border-2 border-neutral-200 rounded-md mt-4 mb-8'
@@ -88,7 +111,7 @@ export const Calculate = () => {
             onChange={handleInputChange}
             disabled={checkInput}
             autoComplete='off'
-            className="w-72  sm:w-72 border-2 border-neutral-300 rounded w-1/5" 
+            className="w-64  sm:w-72 border-2 border-neutral-300 rounded w-1/5" 
           />
         </div>
 
@@ -100,7 +123,7 @@ export const Calculate = () => {
             onChange={handleInputChange}
             disabled={checkInput}
             //autoComplete='off'
-            className="w-72 sm:w-72 border-2 border-neutral-300 rounded w-1/5"
+            className="w-64 sm:w-72 border-2 border-neutral-300 rounded w-1/5"
           />
         </div>
 
@@ -112,7 +135,7 @@ export const Calculate = () => {
             onChange={handleInputChange}
             disabled={checkInput}
             autoComplete='off'
-            className="w-72  sm:w-72 border-2 border-neutral-300 rounded w-1/5"
+            className="w-64  sm:w-72 border-2 border-neutral-300 rounded w-1/5"
           />
         </div>
 

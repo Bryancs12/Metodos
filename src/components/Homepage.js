@@ -1,43 +1,66 @@
 import React from 'react'
+import {Card} from "./cards/Card";
+import {IsaacCard} from "./cards/IsaacCard";
+import {JosephCard} from "./cards/JosephCard";
+
 
 export const Homepage = () => {
 
   
-  return (
-    
+  return (    
 
 <div className='container mx-auto p-4  border-neutral-200 rounded-lg'>
-        <div className='flex justify-around'>
+  <div className='md: grid md:grid-cols-2'>
 
-        <div className='pl-12'>
-            <div className='pl-8 sm:pl-12 italic text-xl sm:text-2xl pb-2'>Isaac Newton</div>
-            <img className='rounded-3xl' src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/GodfreyKneller-IsaacNewton-1689.jpg/220px-GodfreyKneller-IsaacNewton-1689.jpg'/>
-        </div>
+      <IsaacCard content={"Isaac Newton nació en las primeras horas del 25 de diciembre de 1642\n" +
+          "                            (4 de enero de 1643, según el calendario gregoriano),\n" +
+          "                            en la pequeña aldea de Woolsthorpe, en el condado de Lincolnshire."
 
-        <div className='pl-20'>
-            <div className='pl-9 sm:pl-18  italic text-xl sm:text-2xl pb-2'>Joseph Raphson</div>
-            <img className='rounded-3xl' src={require('../img/Raphson.jpg')}/>
-        </div>
+      } />
+         
+      <JosephCard content={"Joseph Raphson estudió en el Jesus College de Cambridge y se graduó en ciencias exactas en 1692.\n" +
+          "                        El método de Newton-Raphson es llamado así debido a que en 1691 lo publica en su\n" +
+          "                        libro Aequationum Universalis"}
+      />
 
-        </div>
-       
-        
-      <br />
+  </div>
 
+    <Card title={"Fundamento Historico"}
+          content={"El método numérico de Newton-Raphson fue descrito por Sir Isaac Newton \n" +
+              "          en “Sobre el análisis mediante ecuaciones con un número infinito de términos”, \n" +
+              "          escrito en 1669, publicado en 1711 por William Jones y en “De metodis fluxionum \n" +
+              "          et serierum infinitarum” escrito en 1671, traducido y publicado como Método de las \n" +
+              "          fluxiones en 1736 por John Colson. Sin embargo, su descripción difiere en forma \n" +
+              "          sustancial de la descripción moderna: Newton aplicaba el método solo a polinomios, \n" +
+              "          y no consideraba las aproximaciones sucesivas Xn, sino que calculaba una \n" +
+              "          secuencia de polinomios para llegar a la aproximación de la raíz x. Finalmente, \n" +
+              "          Newton ve el método como puramente algebraico y falla al no ver la conexión con \n" +
+              "          el cálculo."}
+    />
 
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vestibulum odio eros, ac facilisis mauris blandit ac. Donec scelerisque fermentum sem, eget bibendum elit porttitor ac. Integer ultricies mollis magna eu tincidunt. Maecenas cursus mi quis commodo cursus. Fusce dapibus sapien non tortor pulvinar congue. Etiam molestie faucibus neque, nec maximus arcu dignissim ac. Ut dictum ut magna ut sollicitudin. Donec leo lacus, dictum non metus eu, auctor consequat nunc. Etiam cursus, sem venenatis varius sollicitudin, lorem quam dapibus est, id tempor tortor tellus tincidunt leo. Nunc porta erat sed sapien convallis, sed mollis nulla euismod. Nullam pellentesque ipsum venenatis dictum bibendum.
+      <br/>
 
-Ut feugiat lacinia dictum. Nam nunc velit, porttitor eget leo vitae, congue feugiat neque. Etiam sit amet tristique metus. Sed magna sem, finibus in sem eget, consectetur dapibus diam. In elementum dolor at egestas volutpat. Nulla nec aliquet ipsum. Duis lobortis sapien sed nulla sodales, consectetur pellentesque felis aliquam. Curabitur eget eros molestie magna porta blandit. Morbi sit amet turpis porttitor, tempus neque vel, mattis justo. Proin sed dolor nibh.
+    <Card title={"Fundamento Teórico"}
+          content={"El método de Newton-Raphson es un método abierto, en el sentido de que \n" +
+              "          su convergencia global no está garantizada. La única manera de alcanzar la \n" +
+              "          convergencia es seleccionar un valor inicial lo suficientemente cercano a la raíz \n" +
+              "          buscada. Así, se ha de comenzar la iteración con un valor razonablemente cercano \n" +
+              "          al cero (denominado punto de arranque o valor supuesto). La relativa cercanía del \n" +
+              "          punto inicial a la raíz depende mucho de la naturaleza de la propia función; si ésta \n" +
+              "          presenta múltiples puntos de inflexión o pendientes grandes en el entorno de la raíz, \n" +
+              "          entonces las probabilidades de que el algoritmo diverja aumentan, lo cual exige \n" +
+              "          seleccionar un valor supuesto cercano a la raíz.\n" +
+              "          el cálculo."}
+    />
 
-Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In non nulla pulvinar, interdum sem vel, bibendum dolor. Etiam euismod ligula in nisl fringilla, id sodales purus condimentum. Mauris gravida, leo eu tincidunt porta, felis mi laoreet massa, vitae viverra ex mauris eu nisl. Proin ut turpis at dui ornare consequat. Maecenas vel mauris et sem iaculis pulvinar eget id est. Pellentesque sit amet diam vitae magna sagittis dictum id ut ante. Sed luctus, quam ac sagittis vestibulum, leo libero suscipit nisi, et blandit purus ligula ut lorem. Nulla facilisi. Nulla nisl sapien, congue at commodo eget, rhoncus vestibulum magna. Maecenas vitae sollicitudin erat. Etiam vitae blandit velit, vel feugiat massa. Duis eleifend congue dui, nec placerat tortor congue quis. Nulla lectus libero, euismod eget erat quis, vulputate placerat sapien. Vivamus sit amet massa in leo blandit interdum.
+      <br/>
 
-Proin vulputate congue arcu. Donec vitae leo id ex sagittis placerat. Vivamus accumsan sollicitudin mauris ac dapibus. Suspendisse potenti. Vestibulum sit amet velit viverra, mollis enim nec, ornare ex. In est nisi, faucibus non gravida in, suscipit eu metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut viverra eros ut lectus convallis, eu sollicitudin ante porta.
-
-Aenean neque augue, iaculis nec urna ac, bibendum iaculis odio. Vestibulum mattis nisi nec lectus scelerisque, vitae maximus nulla porta. Integer sit amet feugiat nibh. Nullam eleifend pellentesque est a dictum. Aenean euismod purus quam, quis egestas dui sodales in. In rutrum ante et lectus porttitor tincidunt. Quisque fermentum nunc semper ex fringilla, et blandit velit euismod. Curabitur felis felis, posuere sed porttitor nec, egestas et erat. Proin vel libero scelerisque, condimentum dui ac, volutpat ex. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam venenatis ac quam sit amet semper. Phasellus posuere dictum leo nec euismod. Vivamus faucibus nisl quis magna finibus, non ultricies enim rutrum. Nulla sollicitudin luctus viverra. Integer interdum magna ut hendrerit mattis.
-        
-        
-        </div>
+    <Card title={"Uso del método en la cotidianidad"}
+          content={"En análisis numérico, el método de Newton-Raphson es un algoritmo para \n" +
+              "          encontrar aproximaciones de los ceros o raíces de una función real. También puede \n" +
+              "          ser usado para encontrar el máximo o mínimo de una función, encontrando los ceros \n" +
+              "          de su primera derivada"}
+    />
 
       </div>
           

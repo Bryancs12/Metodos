@@ -2,27 +2,28 @@ import { NavLink, Link} from 'react-router-dom'
 
 export const Navbar = () => {
   return (
-    <nav className='bg-[#65D6C0] h-24 rounded-lg'>
+    <nav className='bg-slate-100 h-24'>
         
         <div className='flex justify-start sm:justify-center'>
         
         
-        <div className='text-2xl pt-8 pr-8'>
+        <div className='text-2xl pt-8 pr-2 italic'>
         <NavLink to='/homepage'
-            className='pl-24'
+            className='pl-16'
         >
-            Homepage
+            Información
         </NavLink>
         </div>
-       
-
-        {/* <NavLink to='/description'>
-            Description
-        </NavLink> */}
         
-        <div className='text-2xl pt-8 pl-8'>
-        <NavLink to='/calculate' className='pr-24'>
-            Calculate
+        <div className='text-2xl pt-8 pl-8 italic'>
+        <NavLink to='/calculate' className='pr-8'>
+            Calcular
+        </NavLink>
+        </div>
+
+        <div className='text-2xl pt-8  italic'>
+        <NavLink to='/description' className='pr-24'>
+            Creadores
         </NavLink>
         </div>
         
